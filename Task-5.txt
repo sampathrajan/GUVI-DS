@@ -1,0 +1,22 @@
+1) Load the two csv files as DataFrame "user" & "user_engagement".
+2) First process the "user" DataFrame.
+3) Check for the columns having NaN values, and Null values found in last_session_creation_time and invited_by_user_id.
+4) Check If the records are unique, So check if the email id is unique, we see that some of the email id appears in more than one row
+   need to remomve the duplicate entries.
+5) Need to change the Creation_time and last_session_creation_time to datetime objects\
+6) Fill the NaN values in invited_by_user_id by 0 
+7) To Fill NaN values in last_session_creation_time column, check the users login details available in engagement table, for that
+   first we need to analyse the engagement table.
+8) In user_engagement table not containing any null value in all the columns, but visited colum having same value '1' for all records
+   So we can remove that column from the user_engagement DataFrame.
+9) Need to change the time_stamp colum as datetime object.
+10) Get the list of User having NaN value in the last_session_creation_time column, and check if any of the user 
+    having login details in user_engagement DataFrame.
+11) There are no login details available for the users with missing last_session_creation_time. So we will fill all
+    missing entries with dates from creation_time, assuming that is the only time they logged into the product.
+12) Check if the user and inviting user belong to the same group. For that need compare the value of org_id user and inviting user.
+13) We will add two columns in user DataFrame org_size and referred. org_size with Number of users in each organization and
+    referred with if the user was invited to sign in  then True else False.
+14) Get the time_stamp from the user_engagement DataFrame by user.object_id and check if the entries with the same user apprears three or more 
+    times in the seven days. Add the new column 'user_adopt' in user if that user appears three or more times in seven day set True otherwise False.
+	
